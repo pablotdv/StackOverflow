@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ExibirDataFormatadaDataGridView
 {
-    public partial class Form1 : Form
+    public partial class PessoaTableAdapterForm : Form
     {
-        public Form1()
+        public PessoaTableAdapterForm()
         {
             InitializeComponent();
         }
@@ -22,6 +22,8 @@ namespace ExibirDataFormatadaDataGridView
             // TODO: This line of code loads data into the 'gaveteiroLanchesDataSet.Pessoa' table. You can move, or remove it, as needed.
             this.pessoaTableAdapter.Fill(this.gaveteiroLanchesDataSet.Pessoa);
 
+
+            
         }
     }
 }

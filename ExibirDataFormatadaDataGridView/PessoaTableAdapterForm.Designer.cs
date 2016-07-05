@@ -1,6 +1,6 @@
 ﻿namespace ExibirDataFormatadaDataGridView
 {
-    partial class Form1
+    partial class PessoaTableAdapterForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.gaveteiroLanchesDataSet = new ExibirDataFormatadaDataGridView.GaveteiroLanchesDataSet();
             this.pessoaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gaveteiroLanchesDataSet = new ExibirDataFormatadaDataGridView.GaveteiroLanchesDataSet();
             this.pessoaTableAdapter = new ExibirDataFormatadaDataGridView.GaveteiroLanchesDataSetTableAdapters.PessoaTableAdapter();
             this.pessoaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,8 +44,8 @@
             this.nomeFantasiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.discriminatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gaveteiroLanchesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pessoaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gaveteiroLanchesDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -70,15 +69,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(787, 384);
             this.dataGridView1.TabIndex = 0;
             // 
-            // gaveteiroLanchesDataSet
-            // 
-            this.gaveteiroLanchesDataSet.DataSetName = "GaveteiroLanchesDataSet";
-            this.gaveteiroLanchesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // pessoaBindingSource
             // 
             this.pessoaBindingSource.DataMember = "Pessoa";
             this.pessoaBindingSource.DataSource = this.gaveteiroLanchesDataSet;
+            // 
+            // gaveteiroLanchesDataSet
+            // 
+            this.gaveteiroLanchesDataSet.DataSetName = "GaveteiroLanchesDataSet";
+            this.gaveteiroLanchesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pessoaTableAdapter
             // 
@@ -112,9 +111,6 @@
             // dataHoraCadDataGridViewTextBoxColumn
             // 
             this.dataHoraCadDataGridViewTextBoxColumn.DataPropertyName = "DataHoraCad";
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataHoraCadDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataHoraCadDataGridViewTextBoxColumn.HeaderText = "DataHoraCad";
             this.dataHoraCadDataGridViewTextBoxColumn.Name = "dataHoraCadDataGridViewTextBoxColumn";
             // 
@@ -158,8 +154,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gaveteiroLanchesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pessoaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gaveteiroLanchesDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
