@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,23 +21,35 @@ namespace ExibirDataFormatadaDataGridView
 
         private void PessoaBindingSourceForm_Load(object sender, EventArgs e)
         {
-            PessoaList list = new PessoaList();
-
-            list.Add(new Pessoa() { Id = 1, DataHora = DateTime.Now.AddDays(1), Nome = "Pablo" });
-            list.Add(new Pessoa() { Id = 2, DataHora = DateTime.Now.AddDays(2), Nome = "Pablo" });
-            list.Add(new Pessoa() { Id = 3, DataHora = DateTime.Now.AddDays(3), Nome = "Pablo" });
-            list.Add(new Pessoa() { Id = 4, DataHora = DateTime.Now.AddDays(4), Nome = "Pablo" });
+            var dt = GetDataSet("select * from cc.Pessoa");
 
             BindingSource sbind = new BindingSource();
-            sbind.DataSource = list;
+            sbind.DataSource = dt;
+
             dataGridView1.DataSource = sbind;
             dataGridView1.Refresh();
         }
+
+        public DataSet GetDataSet(string SQL)
+        {
+            DataSet ds = new DataSet();
+            using (SqlCommand cmd = new SqlCommand(
+                SQL, new SqlConnection("Data Source=.;Initial Catalog=GaveteiroLanches;Integrated Security=True")))
+            {
+                cmd.Connection.Open();
+                DataTable table = new DataTable();
+                table.Load(cmd.ExecuteReader());
+                ds.Tables.Add(table);
+            }
+            return ds;
+        }
+
+
     }
 
     public class PessoaList : BindingList<Pessoa>
     {
 
-        
+
     }
 }
