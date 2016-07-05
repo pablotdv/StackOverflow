@@ -17,7 +17,8 @@ namespace MapeamentoFluentAPIRelacionamentos.Models
                 .IsRequired()
                 .HasColumnType("varchar")
                 .HasMaxLength(120);
-            //HasRequired(f => f.Estado).WithMany(p => p.CidadeLista).HasForeignKey(p => p.EstadoId);
+
+            HasRequired(a => a.Estado).WithMany(a => a.CidadeLista).HasForeignKey(a => a.EstadoId);
         }
     }
 
@@ -29,9 +30,8 @@ namespace MapeamentoFluentAPIRelacionamentos.Models
             HasKey(c => c.Id);
             Property(p => p.Sigla).IsRequired().HasColumnType("char").HasMaxLength(5);
             Property(p => p.Nome).IsRequired().HasColumnType("varchar").HasMaxLength(75);
-            //Ignore(p => p.EstadoPaisId);
-            //Relacionamentos
-            HasRequired(p => p.CidadeLista).WithRequiredPrincipal().Map(p => p.MapKey("EstadoId"));
+            
+            HasRequired(a => a.Pais).WithMany(a => a.EstadoLista).HasForeignKey(a => a.PaisId);
         }
     }
 

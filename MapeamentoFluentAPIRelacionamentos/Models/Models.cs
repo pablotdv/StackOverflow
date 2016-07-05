@@ -10,7 +10,9 @@ namespace MapeamentoFluentAPIRelacionamentos.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        //public int EstadoId { get; set; }
+
+        public int EstadoId { get; set; }
+
         public virtual EstadoEntity Estado { get; set; }
     }
 
@@ -20,7 +22,9 @@ namespace MapeamentoFluentAPIRelacionamentos.Models
         public string Sigla { get; set; }
         public string Nome { get; set; }
         public virtual IList<CidadeEntity> CidadeLista { get; set; }
-        //public byte EstadoPaisId { get; set; }
+
+        public int PaisId { get; set; }
+
         public virtual PaisEntity Pais { get; set; }
     }
     public class PaisEntity

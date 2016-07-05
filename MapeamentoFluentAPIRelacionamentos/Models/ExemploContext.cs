@@ -9,6 +9,12 @@ namespace MapeamentoFluentAPIRelacionamentos.Models
 {
     public class ExemploContext : DbContext
     {
+        public ExemploContext()
+            :base("DefaultConnection")
+        {
+
+        }
+
         public DbSet<EstadoEntity> Estados { get; set; }
 
         public DbSet<CidadeEntity> Cidades { get; set; }
