@@ -1,0 +1,58 @@
+﻿@model RelatoriosTags.Models.RelatorioTagModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RelatorioTagModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vedacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vedacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fluido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fluido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Criticidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Criticidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mtbf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mtbf)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TagID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

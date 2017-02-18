@@ -1,0 +1,72 @@
+﻿@using RelatoriosTags.ViewModels
+@model RelatoriosTagsViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "RelatoriosTags", FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tag, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Tag, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Tag, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <button type="submit" id="pesquisar" class="btn btn-primary btn-xs">Buscar</button>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Tags
+        </th>
+        <th>
+            Vedação
+        </th>
+        <th>
+            Fluído
+        </th>
+        <th>
+            Criticidade
+        </th>
+        <th>
+            Mtbf
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.RelatoriosTags) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Tag, "Index", new RelatoriosTagsViewModel() { Tag = item.Tag })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vedacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fluido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Criticidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mtbf)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TagID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TagID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TagID })
+        </td>
+    </tr>
+}
+
+</table>

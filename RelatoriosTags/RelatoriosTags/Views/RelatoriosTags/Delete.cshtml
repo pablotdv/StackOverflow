@@ -1,0 +1,64 @@
+﻿@model RelatoriosTags.Models.RelatorioTagModels
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RelatorioTagModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vedacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vedacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fluido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fluido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Criticidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Criticidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mtbf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mtbf)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
