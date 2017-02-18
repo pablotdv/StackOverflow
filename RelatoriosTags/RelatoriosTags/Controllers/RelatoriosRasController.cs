@@ -8,126 +8,122 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RelatoriosTags.Models;
-using RelatoriosTags.ViewModels;
 
 namespace RelatoriosTags.Controllers
 {
-    public class RelatoriosTagsController : Controller
+    public class RelatoriosRasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: RelatoriosTags
-        public async Task<ActionResult> Index(RelatoriosTagsViewModel model)
-        {
-            if (model == null)
-            {
-                model = new RelatoriosTagsViewModel();
-            }
+        // GET: RelatoriosRas
+public async Task<ActionResult> Index(int? tagId)
+{
+    var relatorioRaModels = db.RelatoriosRas.Include(r => r.RelatorioTag);
+            
+    if (tagId.HasValue)
+    {
+        //realiza o filtro para a tag selecionada
+        relatorioRaModels = relatorioRaModels.Where(a => a.TagID == tagId);
+    }
 
-            var query = db.RelatoriosTags.AsQueryable();
+    return View(await relatorioRaModels.ToListAsync());
+}
 
-            if (!String.IsNullOrWhiteSpace(model.Tag))
-            {
-                // cria seu select * from Tag = 'P401-1E', mas somente quando a Tag for preenchida na pesquisa
-                query = query.Where(a => a.Tag.Equals(model.Tag));
-            }
-
-            model.RelatoriosTags = await query.ToListAsync();
-
-            return View(model);
-        }
-
-        // GET: RelatoriosTags/Details/5
+        // GET: RelatoriosRas/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RelatorioTagModels relatorioTagModels = await db.RelatoriosTags.FindAsync(id);
-            if (relatorioTagModels == null)
+            RelatorioRaModels relatorioRaModels = await db.RelatoriosRas.FindAsync(id);
+            if (relatorioRaModels == null)
             {
                 return HttpNotFound();
             }
-            return View(relatorioTagModels);
+            return View(relatorioRaModels);
         }
 
-        // GET: RelatoriosTags/Create
+        // GET: RelatoriosRas/Create
         public ActionResult Create()
         {
+            ViewBag.TagID = new SelectList(db.RelatoriosRas, "TagID", "Tag");
             return View();
         }
 
-        // POST: RelatoriosTags/Create
+        // POST: RelatoriosRas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "TagID,Tag,Vedacao,Fluido,Criticidade,Mtbf")] RelatorioTagModels relatorioTagModels)
+        public async Task<ActionResult> Create([Bind(Include = "RaID,Data,Nivel,Nº,TagID")] RelatorioRaModels relatorioRaModels)
         {
             if (ModelState.IsValid)
             {
-                db.RelatoriosTags.Add(relatorioTagModels);
+                db.RelatoriosRas.Add(relatorioRaModels);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(relatorioTagModels);
+            ViewBag.TagID = new SelectList(db.RelatoriosRas, "TagID", "Tag", relatorioRaModels.TagID);
+            return View(relatorioRaModels);
         }
 
-        // GET: RelatoriosTags/Edit/5
+        // GET: RelatoriosRas/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RelatorioTagModels relatorioTagModels = await db.RelatoriosTags.FindAsync(id);
-            if (relatorioTagModels == null)
+            RelatorioRaModels relatorioRaModels = await db.RelatoriosRas.FindAsync(id);
+            if (relatorioRaModels == null)
             {
                 return HttpNotFound();
             }
-            return View(relatorioTagModels);
+            ViewBag.TagID = new SelectList(db.RelatoriosRas, "TagID", "Tag", relatorioRaModels.TagID);
+            return View(relatorioRaModels);
         }
 
-        // POST: RelatoriosTags/Edit/5
+        // POST: RelatoriosRas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "TagID,Tag,Vedacao,Fluido,Criticidade,Mtbf")] RelatorioTagModels relatorioTagModels)
+        public async Task<ActionResult> Edit([Bind(Include = "RaID,Data,Nivel,Nº,TagID")] RelatorioRaModels relatorioRaModels)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(relatorioTagModels).State = EntityState.Modified;
+                db.Entry(relatorioRaModels).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(relatorioTagModels);
+            ViewBag.TagID = new SelectList(db.RelatoriosRas, "TagID", "Tag", relatorioRaModels.TagID);
+            return View(relatorioRaModels);
         }
 
-        // GET: RelatoriosTags/Delete/5
+        // GET: RelatoriosRas/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RelatorioTagModels relatorioTagModels = await db.RelatoriosTags.FindAsync(id);
-            if (relatorioTagModels == null)
+            RelatorioRaModels relatorioRaModels = await db.RelatoriosRas.FindAsync(id);
+            if (relatorioRaModels == null)
             {
                 return HttpNotFound();
             }
-            return View(relatorioTagModels);
+            return View(relatorioRaModels);
         }
 
-        // POST: RelatoriosTags/Delete/5
+        // POST: RelatoriosRas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            RelatorioTagModels relatorioTagModels = await db.RelatoriosTags.FindAsync(id);
-            db.RelatoriosTags.Remove(relatorioTagModels);
+            RelatorioRaModels relatorioRaModels = await db.RelatoriosRas.FindAsync(id);
+            db.RelatoriosRas.Remove(relatorioRaModels);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

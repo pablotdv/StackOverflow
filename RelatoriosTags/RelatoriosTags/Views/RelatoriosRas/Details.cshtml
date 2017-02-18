@@ -1,0 +1,50 @@
+﻿@model RelatoriosTags.Models.RelatorioRaModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RelatorioRaModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RelatorioTag.Tag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RelatorioTag.Tag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nivel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nivel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nº)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nº)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

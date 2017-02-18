@@ -20,5 +20,7 @@ namespace RelatoriosTags.Models
         }
 
         public DbSet<RelatorioTagModels> RelatoriosTags { get; set; }
+
+        public DbSet<RelatorioRaModels> RelatoriosRas { get; set; }
     }
 }

@@ -44,29 +44,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model.RelatoriosTags) {
-    <tr>
-        <td>
-            @Html.ActionLink(item.Tag, "Index", new RelatoriosTagsViewModel() { Tag = item.Tag })
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vedacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fluido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Criticidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mtbf)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TagID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TagID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TagID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.RelatoriosTags)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(linkText: item.Tag, actionName: "Index", controllerName: "RelatoriosRas", routeValues: new { tagId = item.TagID }, htmlAttributes: new { })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vedacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fluido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Criticidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mtbf)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TagID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TagID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TagID })
+            </td>
+        </tr>
+    }
 
 </table>

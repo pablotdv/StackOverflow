@@ -1,0 +1,51 @@
+﻿@model IEnumerable<RelatoriosTags.Models.RelatorioRaModels>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RelatorioTag.Tag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nivel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nº)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RelatorioTag.Tag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nivel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nº)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RaID })
+        </td>
+    </tr>
+}
+
+</table>

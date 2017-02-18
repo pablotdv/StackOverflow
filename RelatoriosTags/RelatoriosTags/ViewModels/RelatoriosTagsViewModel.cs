@@ -6,10 +6,10 @@ using System.Web;
 
 namespace RelatoriosTags.ViewModels
 {
-    public class RelatoriosTagsViewModel
-    {
-        public string Tag { get; set; }
+public class RelatoriosTagsViewModel
+{
+    public string Tag { get; set; }
 
-        public IEnumerable<RelatorioTagModels> RelatoriosTags { get; set; }
-    }
+    public IEnumerable<RelatorioTagModels> RelatoriosTags { get; set; }
+}
 }

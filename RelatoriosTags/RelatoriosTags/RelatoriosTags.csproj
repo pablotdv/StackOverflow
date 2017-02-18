@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RelatoriosRasController.cs" />
     <Compile Include="Controllers\RelatoriosTagsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,6 +180,7 @@
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RelatorioRaModels.cs" />
     <Compile Include="Models\RelatorioTagModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -244,6 +246,11 @@
     <Content Include="Views\RelatoriosTags\Details.cshtml" />
     <Content Include="Views\RelatoriosTags\Edit.cshtml" />
     <Content Include="Views\RelatoriosTags\Index.cshtml" />
+    <Content Include="Views\RelatoriosRas\Create.cshtml" />
+    <Content Include="Views\RelatoriosRas\Delete.cshtml" />
+    <Content Include="Views\RelatoriosRas\Details.cshtml" />
+    <Content Include="Views\RelatoriosRas\Edit.cshtml" />
+    <Content Include="Views\RelatoriosRas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

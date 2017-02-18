@@ -22,5 +22,8 @@ namespace RelatoriosTags.Models
         public string Criticidade { get; set; }
         [Required]
         public decimal Mtbf { get; set; }
+
+        // Define que uma Tag vai ter vários Ras (1-N)
+        public ICollection<RelatorioRaModels> RelatoriosRas { get; set; }
     }
 }
