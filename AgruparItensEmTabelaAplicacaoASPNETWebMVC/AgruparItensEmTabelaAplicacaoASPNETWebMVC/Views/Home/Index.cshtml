@@ -1,0 +1,37 @@
+﻿@model IEnumerable<IGrouping<int, AgruparItensEmTabelaAplicacaoASPNETWebMVC.Models.PesquisaProduto>>
+<table class="table table-bordered" id="dataTable" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Código produto</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Key</td>            
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>
+                                Nome
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var p in item)
+                        {
+                            <tr>
+                               <td>
+                                   @p.Nome
+                               </td>
+                            </tr>
+                        }                        
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    }
+</table>
