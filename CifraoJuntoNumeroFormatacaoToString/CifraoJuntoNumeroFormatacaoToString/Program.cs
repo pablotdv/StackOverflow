@@ -11,10 +11,10 @@ namespace CifraoJuntoNumeroFormatacaoToString
     {
         static void Main(string[] args)
         {
-Decimal value = 1106.20m;
-Console.WriteLine($"Current Culture: {CultureInfo.CurrentCulture.Name}");
-Console.WriteLine($"Currency Symbol: {NumberFormatInfo.CurrentInfo.CurrencySymbol}");
-Console.WriteLine($"Currency Value:  {NumberFormatInfo.CurrentInfo.CurrencySymbol} {value:N2}");
+            Decimal value = 1106.20m;
+            Console.WriteLine($"Current Culture: {CultureInfo.CurrentCulture.Name}");
+            Console.WriteLine($"Currency Symbol: {NumberFormatInfo.CurrentInfo.CurrencySymbol}");
+            Console.WriteLine($"Currency Value:  {NumberFormatInfo.CurrentInfo.CurrencySymbol} {value:N2}");
         }
     }
 }
