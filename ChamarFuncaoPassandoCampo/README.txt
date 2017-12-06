@@ -1,0 +1,1 @@
+Em resposta a pergunta https://pt.stackoverflow.com/q/260796/5846
