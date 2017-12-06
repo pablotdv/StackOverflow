@@ -17,13 +17,14 @@
     <script type="text/javascript">
         $(document).ready(function () {
             function Mascarar() {
-                if ($("[id$='ddlIDType']") == 'P') {
-                    document.getElementById('txtCpf').style.display = '';
-                    $("#txtCpf").mask("999.999.999-99");
+                if ($("[id$='ddlIDType']").val() == 'P') {
+                    alert('PF')
+                    //document.getElementById('txtCpf').style.display = '';
+                    //$("#txtCpf").mask("999.999.999-99");
                 } else {
-                    document.getElementById('txtCpf').style.display = '';
-
-                    $("#txtCpf").mask("99.999.999/9999-99");
+                    alert('PJ');
+                    //document.getElementById('txtCpf').style.display = '';
+                    //$("#txtCpf").mask("99.999.999/9999-99");
                 }
             }
 
