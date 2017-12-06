@@ -16,9 +16,8 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $("[id$='ddlIDType']").on('change', function () {
-                $("#txtCpf").mask("999.999.999-99");
-                if ($(this).val() == 'P') {
+            function Mascarar() {
+                if ($("[id$='ddlIDType']") == 'P') {
                     document.getElementById('txtCpf').style.display = '';
                     $("#txtCpf").mask("999.999.999-99");
                 } else {
@@ -26,6 +25,12 @@
 
                     $("#txtCpf").mask("99.999.999/9999-99");
                 }
+            }
+
+            Mascarar();
+
+            $("[id$='ddlIDType']").on('change', function () {
+                Mascarar();
             })
         });
     </script>
