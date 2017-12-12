@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuncaoOnChange", "FuncaoOnChange\FuncaoOnChange.csproj", "{99470C44-9422-4FEF-A3D9-C9C78A495B69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99470C44-9422-4FEF-A3D9-C9C78A495B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99470C44-9422-4FEF-A3D9-C9C78A495B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99470C44-9422-4FEF-A3D9-C9C78A495B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99470C44-9422-4FEF-A3D9-C9C78A495B69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3EBB4B4-922C-4CB5-B4C1-19D4D4389CEF}
+	EndGlobalSection
+EndGlobal
